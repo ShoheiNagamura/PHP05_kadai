@@ -152,9 +152,6 @@ if (isset($_SESSION['is_user']) && $_SESSION['is_user'] === 0) {
                         </ul>
                     </li>
                 </ul>
-                <a href="./selectmypage.php">
-                    <img src="./img/mypage.png" alt="マイページアイコン">
-                </a>
             </nav>
         </header>
     ';
@@ -270,7 +267,7 @@ if (isset($_SESSION["id"])) {
     <main>
         <div class="main-area">
             <h2>案件一覧</h2>
-            <h3 class="job_num"><?= $job_num ?>件を登録済み</h3>
+            <h3 class="job_num"><?= $job_num ?>件が登録されています</h3>
             <p>応募には登録が必要です。</p>
             <div class="job-area">
                 <?= $output ?>
