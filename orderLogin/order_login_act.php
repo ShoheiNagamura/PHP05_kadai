@@ -10,7 +10,7 @@ session_start();
 // DB接続関数を読み込み
 //ログインチェック関数を関数ファイルから読み込み
 include('../functions/connect_to_db.php');
-include('../functions/check_session_id');
+include('../functions/check_session_id.php');
 
 // フォームPOSTから受け取った値を変数に入れる
 $email = $_POST['email'];

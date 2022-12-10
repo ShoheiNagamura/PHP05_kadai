@@ -2,7 +2,7 @@
 // 案件一覧画面ーーーーーーーーーーーーーーーーーーー
 
 // 関数ファイルの読み込み
-include('./functions/check_session_id');
+include('./functions/check_session_id.php');
 include('./functions/connect_to_db.php');
 
 session_start();
