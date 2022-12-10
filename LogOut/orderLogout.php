@@ -1,6 +1,6 @@
 <?php
 include('../functions/connect_to_db.php');
-include('../functions/check_session_id');
+include('../functions/check_session_id.php');
 
 session_start();
 // var_dump($_SESSION);

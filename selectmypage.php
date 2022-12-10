@@ -1,7 +1,7 @@
 <?php
 // マイページ遷移処理ーーーーーーーーーーーーーーーーーーー
 
-include('./functions/check_session_id');
+include('./functions/check_session_id.php');
 
 session_start();
 
