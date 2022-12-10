@@ -286,3 +286,25 @@ input,
 textarea {
     font-size: 14px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.password-display {
+    position: relative;
+}
+
+.toggle-pass {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
