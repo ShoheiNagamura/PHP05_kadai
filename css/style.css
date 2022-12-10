@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: none;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ヘッダー 共通　ーーーーーーーーーーーーーーーーーーーーーーーーーーー*/
+header {
+    background-color: dodgerblue;
+    color: cornsilk;
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+header h1 {
+    margin-left: 20px;
+}
+
+nav {
+    margin: 0 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-nav {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.header-nav li {
+    margin-left: 18px;
+}
+
+.signup-down,
+.login-down,
+.job-down {
+    display: none;
+}
+
+.signup:hover .signup-down,
+.login:hover .login-down,
+.job:hover .job-down {
+    display: block;
+    position: absolute;
+    background-color: #3f8cd3;
+    padding: 10px;
+    margin: 0;
+    box-shadow: 2px 2px 8px #95949a;
+}
+
+.order-signup,
+.seller-signup,
+.order-login,
+.seller-login,
+.job-input,
+.job-list {
+    list-style: none;
+}
+
+.order-signup:hover,
+.seller-signup:hover,
+.order-login:hover,
+.seller-login:hover,
+.job-input:hover,
+.job-list:hover {
+    background-color: aquamarine;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+}
+
+
+/* メインーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+.main-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-area h2 {
+    font-size: 48px;
+    margin: 80px;
+}
+
+.hoge-area {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.seller-items {
+    width: 30%;
+    height: 400px;
+    margin: 20px;
+    padding-bottom: 20px;
+    border: 2px solid gray;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2%;
+    box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.45);
+}
+
+.seller-item {
+    margin: 5px;
+}
+
+
+/* 発注者新規登録画面　order_signup.php---------------------------------- */
+
+.signup-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    width: 50%;
+    /* background-color: rgb(40, 58, 136); */
+    background-color: rgba(87, 142, 230, 0.5);
+    /* opacity: 0.5; */
+    border-radius: 8px;
+    margin-top: 80px;
+    padding: 60px 0;
+}
+
+.signup-form h2 {
+    font-size: 32px;
+    margin-top: 60px;
+}
+
+
+
+.form-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2
+}
+
+label {
+    margin: 20px;
+}
+
+input {
+    width: 600px;
+    height: 40px;
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    margin: 40px;
+    background-color: rgb(235, 244, 69);
+    border: 1px solid rgb(235, 244, 69);
+    border-radius: 4px;
+}
+
+/* 登録済み案件一覧表示ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+
+.job-item {
+    border: 1px solid black;
+    padding: 10px 30px;
+    margin: 30px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.35);
+}
+
+.job-head {
+    display: flex;
+}
+
+.job-headTime {
+    margin: 0 0 0 auto;
+}
+
+.jobName {
+    font-size: 30px;
+}
+
+.status {
+    background-color: yellow;
+    width: 60px;
+    border-radius: 20px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.place {
+    margin-top: 30px;
+}
+
+.status,
+.schedule,
+.reward,
+.TransportationCosts,
+.deadline,
+.content {
+    margin-top: 10px;
+}
+
+
+.place,
+.schedule,
+.reward,
+.TransportationCosts,
+.deadline {
+    margin-left: 40px;
+}
+
+.created_time,
+.update_time {
+    color: #6B6B6B;
+}
+
+.content {
+    margin-bottom: 30px;
+    width: 800px;
+    word-wrap: break-word;
+    background-color: #F9F7F7;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.editBtn {
+    background-color: black;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+
+.deleteBtn {
+    background-color: red;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 10px;
+}
+
+
+/* 案件編集機能ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.jobTitle {
+    font-size: 32px;
+}
+
+.jobInputAreaItem {
+    margin-top: 30px;
+}
+
+.jobInputArea-btn {
+    text-align: center;
+}
+
+.input-date {
+    width: 30px;
+}
+
+input,
+textarea {
+    font-size: 14px;
+}
