@@ -1,10 +1,9 @@
 <?php
 // 案件削除処理ーーーーーーーーーーーーーーーーーーーーーーーーー
 
-
 //DB接続関数読み込み
-include('./functions/connect_to_db.php');
 include('./functions/check_session_id.php');
+include('./functions/connect_to_db.php');
 
 
 session_start();
@@ -18,10 +17,6 @@ if ($_SESSION['is_user'] == 0) {
 
 // データ受け取り
 $id = $_GET['id'];
-
-// DB接続
-include('./functions/connect_to_db.php');
-include('./functions/check_session_id');
 
 $pdo = connect_to_db();
 
