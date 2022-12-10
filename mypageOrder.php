@@ -46,63 +46,57 @@ $output = "";
 if ($_SESSION['is_user'] === 0) {
     foreach ($result as $record) {
         $output .= "
-
             <header>
-        <div class='header-title'>
-            <a href='./index.php'>
-                <h1>ご依頼マッチングサイト</h1>
-            </a>
-        </div>
-        <nav>
-            <ul class='header-nav'>
-                <a href='./jobList.php'>
-                    <li>案件一覧</li>
-                </a>
-                <a href='./search_list.php'>
-                    <li>依頼できる人一覧</li>
-                </a>
-                <li class='job'>案件管理
-                    <ul class='job-down'>
-                        <a href='./jobInput.php'>
-                            <li class='job-input'>案件登録</li>
+                <div class='header-title'>
+                    <a href='./index.php'>
+                        <h1>ご依頼マッチングサイト</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul class='header-nav'>
+                        <a href='./jobList.php'>
+                            <li>案件一覧</li>
                         </a>
-                        <a href='./jobInputList.php'>
-                            <li class='job-list'>案件管理一覧</li>
+                        <a href='./search_list.php'>
+                            <li>依頼できる人一覧</li>
                         </a>
+                        <li class='job'>案件管理
+                            <ul class='job-down'>
+                                <a href='./jobInput.php'>
+                                    <li class='job-input'>案件登録</li>
+                                </a>
+                                <a href='./jobInputList.php'>
+                                    <li class='job-list'>案件管理一覧</li>
+                                </a>
+                            </ul>
+                        </li>
+                        <li class='login-out'>
+                            <a href='./LogOut/orderLogout.php'>ログアウト</a>
+                        </li>
                     </ul>
-                </li>
-                <li class='login'>
-                    <a href='./LogOut/orderLogout.php'>ログアウト</a>
-                </li>
+                </nav>
+            </header>
 
-
-            </ul>
-            <!-- <a class='mypage-img' href='./mypage.php'>
-                <img class='mypage-img' src='./img/mypage.png' alt='マイページアイコン'>
-            </a> -->
-        </nav>
-    </header>
-
-        <div class='order-mypage-area'>
-            <tr class='mypage-item-name'>
-                <td class='mypage-name-title'>お名前：</td>
-                <td class='mypage-name'>{$record["name"]}</td>
-            </tr><br>
-            <tr class='mypage-item-email'>
-                <td class='mypage-email-title'>メールアドレス：</td>
-                <td class='mypage-email'>{$record['email']}</td>
-            </tr><br>
-            <tr class='mypage-item-created_time'>
-                <td class='mypage-created_time-title'>アカウント作成日：</td>
-                <td class='mypage-created_time'>{$record['created_time']}</td>
-            </tr>
-        </div>
-        <div class='order-mypage-button'>
-            <a href='./OrderUserEdit.php'><button>プロフィール編集</button></a>
-            <a href='./LogOut/orderLogout.php'><button>ログアウト</button></a>
-            <a href='./orderUserDelete.php?id={$record['id']}'><button>アカウントを削除</button></a>
-        </div>
-    ";
+            <div class='order-mypage-area'>
+                <tr class='mypage-item-name'>
+                    <td class='mypage-name-title'>お名前：</td>
+                    <td class='mypage-name'>{$record["name"]}</td>
+                </tr><br>
+                <tr class='mypage-item-email'>
+                    <td class='mypage-email-title'>メールアドレス：</td>
+                    <td class='mypage-email'>{$record['email']}</td>
+                </tr><br>
+                <tr class='mypage-item-created_time'>
+                    <td class='mypage-created_time-title'>アカウント作成日：</td>
+                    <td class='mypage-created_time'>{$record['created_time']}</td>
+                </tr>
+            </div>
+            <div class='order-mypage-button'>
+                <a href='./OrderUserEdit.php'><button>プロフィール編集</button></a>
+                <a href='./LogOut/orderLogout.php'><button>ログアウト</button></a>
+                <a href='./orderUserDelete.php?id={$record['id']}'><button>アカウントを削除</button></a>
+            </div>
+        ";
     }
 } else {
     foreach ($result as $record) {

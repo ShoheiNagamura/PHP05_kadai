@@ -44,6 +44,8 @@ nav {
 .header-nav {
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     list-style: none;
     margin-right: 20px;
 }
@@ -289,7 +291,9 @@ textarea {
 
 
 
-
+.logOut {
+    list-style: none;
+}
 
 
 
