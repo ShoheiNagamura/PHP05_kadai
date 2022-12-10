@@ -13,6 +13,8 @@ if ($_SESSION['is_user'] == 0) {
     exit();
 }
 
+
+
 if (
     !isset($_POST['jobName']) || $_POST['jobName'] == '' ||
     !isset($_POST['status']) || $_POST['status'] == '' ||
@@ -26,8 +28,14 @@ if (
     exit('ParamError');
 }
 
-
+//消費税
 $tax = 1.1;
+
+
+$orderUser_id = $_SESSION['id'];
+// var_dump($orderUser_id);
+// exit();
+
 
 $jobName = $_POST['jobName'];
 $status = $_POST['status'];
@@ -42,12 +50,13 @@ $content = $_POST['content'];
 //関数定義ファイルから関数呼び出す
 $pdo = connect_to_db();
 
-$sql = 'INSERT INTO job_project(id, jobName, status, reward, place, schedule,TransportationCosts,deadline, content,created_time, update_time) 
-        VALUES (NULL, :jobName ,:status, :reward, :place, :schedule, :TransportationCosts, :deadline, :content,now(), now())';
+$sql = 'INSERT INTO job_project(id, jobName,orderUser_id, status, reward, place, schedule,TransportationCosts,deadline, content,created_time, update_time) 
+        VALUES (NULL, :jobName ,:orderUser_id, :status, :reward, :place, :schedule, :TransportationCosts, :deadline, :content,now(), now())';
 
 $stmt = $pdo->prepare($sql);
 
 $stmt->bindValue(':jobName', $jobName, PDO::PARAM_STR);
+$stmt->bindValue(':orderUser_id', $orderUser_id, PDO::PARAM_INT);
 $stmt->bindValue(':status', $status, PDO::PARAM_STR);
 $stmt->bindValue(':reward', $reward, PDO::PARAM_INT);
 $stmt->bindValue(':place', $place, PDO::PARAM_STR);
