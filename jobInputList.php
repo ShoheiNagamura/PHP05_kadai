@@ -191,7 +191,7 @@ foreach ($result as $record) {
                 <p class=''>募集締切：{$record["deadline"]}</p>
             </div>
             <div class='content'>
-                <p class=''>案件の内容：{$record["content"]}</p>
+                <p class=''>- 案件の内容 -<br>{$record["content"]}</p>
             </div>
             <tr class='Btn-area'>
                 <td>
