@@ -86,7 +86,10 @@
                     <i class="toggle-pass fa fa-eye-slash"></i>
                 </div>
                 <label for="conf-password">確認パスワード</label>
-                <input type="password" id="conf-password" name="conf-password" placeholder="パスワードを入力してください">
+                <div class="password-display">
+                    <input type="password" id="conf-password" name="conf-password" placeholder="パスワードを入力してください">
+                    <i class="toggle-pass fa fa-eye-slash"></i>
+                </div>
                 <button>登録</button>
 
             </form>
