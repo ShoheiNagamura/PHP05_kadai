@@ -123,9 +123,6 @@ if (isset($_SESSION['is_user']) && $_SESSION['is_user'] === 0) {
                         </ul>
                     </li>
                 </ul>
-                <a href="./selectmypage.php">
-                    <img src="./img/mypage.png" alt="マイページアイコン">
-                </a>
             </nav>
         </header>
     ';

@@ -64,9 +64,6 @@
                     </ul>
                 </li>
             </ul>
-            <a href="./selectmypage.php">
-                <img src="./img/mypage.png" alt="マイページアイコン">
-            </a>
         </nav>
     </header>
 
