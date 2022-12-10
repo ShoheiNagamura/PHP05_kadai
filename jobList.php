@@ -32,7 +32,133 @@ if ($status == false) {
 
 $job_num = count($result);
 
+// ヘッダー用
+$headerOutput = "";
+
+// メイン用
 $output = "";
+
+
+// 認証状態に応じてヘッダーの表示を分ける
+// 発注者でログインしている場合
+if (isset($_SESSION['is_user']) && $_SESSION['is_user'] === 0) {
+    $headerOutput = "
+        <header>
+            <div class='header-title'>
+                <a href='./index.php'>
+                    <h1>ご依頼マッチングサイト</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class='header-nav'>
+                    <a href='./jobList.php'>
+                        <li>案件一覧</li>
+                    </a>
+                    <a href='./search_list.php'>
+                        <li>依頼できる人一覧</li>
+                    </a>
+                    <li class='job'>案件管理
+                        <ul class='job-down'>
+                            <a href='./jobInput.php'>
+                                <li class='job-input'>案件登録</li>
+                            </a>
+                            <a href='./jobInputList.php'>
+                                <li class='job-list'>案件管理一覧</li>
+                            </a>
+                        </ul>
+                    </li>
+                    <li class='login-out'>
+                        <a href='./LogOut/orderLogout.php'>ログアウト</a>
+                    </li>
+                    <a href='./selectmypage.php'>
+                        <img src='./img/mypage.png' alt='マイページアイコン'>
+                    </a>
+                </ul>
+            </nav>
+        </header>
+    ";
+    // 販売者でログインしている場合
+} else if (isset($_SESSION['is_user']) && $_SESSION['is_user'] === 1) {
+    $headerOutput = "
+        <header>
+            <div class='header-title'>
+                <a href='./index.php'>
+                    <h1>ご依頼マッチングサイト</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class='header-nav'>
+                    <a href='./jobList.php'>
+                        <li>案件一覧</li>
+                    </a>
+                    <a href='./search_list.php'>
+                        <li>依頼できる人一覧</li>
+                    </a>
+                    <li class='login'>
+                        <a href='./LogOut/sellerLogout.php'>ログアウト</a>
+                    </li>
+                </ul>
+                <a href='./selectmypage.php'>
+                    <img src='./img/mypage.png' alt='マイページアイコン'>
+                </a>
+            </nav>
+        </header>
+    ";
+    // ログインしていない場合
+} else {
+    $headerOutput = '  
+        <header>
+            <div class="header-title">
+                <a href="./index.php">
+                    <h1>ご依頼マッチングサイト</h1>
+                </a>
+            </div>
+            <nav>
+                <ul class="header-nav">
+                    <a href="./jobList.php">
+                        <li>案件一覧</li>
+                    </a>
+                    <a href="./search_list.php">
+                        <li>依頼できる人一覧</li>
+                    </a>
+                    <li class="signup">新規登録
+                        <ul class="signup-down">
+                            <a href="./order_signup.php">
+                                <li class="order-signup">発注者登録</li>
+                            </a>
+                            <a href="./seller_signup.php">
+                                <li class="seller-signup">販売者登録</li>
+                            </a>
+                        </ul>
+                    </li>
+                    <li class="login">ログイン
+                        <ul class="login-down">
+                            <a href="./orderLogin/order_login.php">
+                                <li class="order-login">発注者ログイン</li>
+                            </a>
+                            <a href="./sellerLogin/seller_login.php">
+                                <li class="seller-login">販売者ログイン</li>
+                            </a>
+                        </ul>
+                    </li>
+                    <li class="job">案件管理
+                        <ul class="job-down">
+                            <a href="./jobInput.php">
+                                <li class="job-input">案件登録</li>
+                            </a>
+                            <a href="./jobInputList.php">
+                                <li class="job-list">案件管理一覧</li>
+                            </a>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="./selectmypage.php">
+                    <img src="./img/mypage.png" alt="マイページアイコン">
+                </a>
+            </nav>
+        </header>
+    ';
+}
 
 // var_dump($result['id']);
 if (isset($_SESSION["id"])) {
@@ -139,59 +265,9 @@ if (isset($_SESSION["id"])) {
 </head>
 
 <body>
-    <header>
-        <div class="header-title">
-            <a href="./index.php">
-                <h1>ご依頼マッチングサイト</h1>
-            </a>
-        </div>
-        <nav>
-            <ul class="header-nav">
-                <a href="./jobList.php">
-                    <li>案件一覧</li>
-                </a>
-                <a href="./search_list.php">
-                    <li>依頼できる人一覧</li>
-                </a>
-                <li class="signup">新規登録
-                    <ul class="signup-down">
-                        <a href="./order_signup.php">
-                            <li class="order-signup">発注者登録</li>
-                        </a>
-                        <a href="./seller_signup.php">
-                            <li class="seller-signup">販売者登録</li>
-                        </a>
-                    </ul>
-                </li>
-                <li class="login">ログイン
-                    <ul class="login-down">
-                        <a href="./orderLogin/order_login.php">
-                            <li class="order-login">発注者ログイン</li>
-                        </a>
-                        <a href="./sellerLogin/seller_login.php">
-                            <li class="seller-login">販売者ログイン</li>
-                        </a>
-                    </ul>
-                </li>
-                <li class="job">案件管理
-                    <ul class="job-down">
-                        <a href="./jobInput.php">
-                            <li class="job-input">案件登録</li>
-                        </a>
-                        <a href="./jobInputList.php">
-                            <li class="job-list">案件管理一覧</li>
-                        </a>
-                    </ul>
-                </li>
-            </ul>
-            <a href="./selectmypage.php">
-                <img src="./img/mypage.png" alt="マイページアイコン">
-            </a>
-        </nav>
-    </header>
+    <?= $headerOutput ?>
 
     <main>
-
         <div class="main-area">
             <h2>案件一覧</h2>
             <h3 class="job_num"><?= $job_num ?>件を登録済み</h3>
@@ -200,18 +276,17 @@ if (isset($_SESSION["id"])) {
                 <?= $output ?>
             </div>
         </div>
-
     </main>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
+    <!-- <script>
         const hoge = <?= json_encode($_SESSION['id']) ?>;
         console.log(hoge);
 
         if (!hoge) {
             $('.application-btn').hide();
         }
-    </script>
+    </script> -->
 
 
 </body>

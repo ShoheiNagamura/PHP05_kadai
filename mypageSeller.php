@@ -42,67 +42,66 @@ $output = "";
 if ($_SESSION['is_user'] === 1) {
     foreach ($result as $record) {
         $output .= "
-    <header>
-        <div class='header-title'>
-            <a href='./index.php'>
-                <h1>ご依頼マッチングサイト</h1>
-            </a>
-        </div>
-        <nav>
-            <ul class='header-nav'>
-                <a href='./jobList.php'>
-                    <li>案件一覧</li>
-                </a>
-                <a href='./search_list.php'>
-                    <li>依頼できる人一覧</li>
-                </a>
-                <li class='login'>
-                    <a href='./LogOut/sellerLogout.php'>ログアウト</a>
-                </li>
+            <header>
+                <div class='header-title'>
+                    <a href='./index.php'>
+                        <h1>ご依頼マッチングサイト</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul class='header-nav'>
+                        <a href='./jobList.php'>
+                            <li>案件一覧</li>
+                        </a>
+                        <a href='./search_list.php'>
+                            <li>依頼できる人一覧</li>
+                        </a>
+                        <li class='login'>
+                            <a href='./LogOut/sellerLogout.php'>ログアウト</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
 
-            </ul>
-        </nav>
-    </header>
-
-        <div class='mypage-main'>
-            <h2>販売者マイページ</h2>
-            <div class='order-mypage-area'>
-                <tr class='mypage-item-name'>
-                    <td class='mypage-name-title'>お名前：</td>
-                    <td class='mypage-name'>{$record["name"]}</td>
-                </tr><br>
-                <tr class='mypage-item-email'>
-                    <td class='mypage-email-title'>メールアドレス：</td>
-                    <td class='mypage-email'>{$record['email']}</td>
-                </tr><br>
-                <tr class='mypage-item-business_name'>
-                    <td class='mypage-business_name-title'>会社名(個人):</td>
-                    <td class='mypage-business_name'>{$record['business_name']}</td>
-                </tr><br>
-                <tr class='mypage-item-address'>
-                    <td class='mypage-address-title'>住所または活動地域:</td>
-                    <td class='mypage-address'>{$record['address']}</td>
-                </tr><br>
-                <tr class='mypage-item-career'>
-                    <td class='mypage-career-title'>経歴:</td>
-                    <td class='mypage-career'>{$record['career']}</td>
-                </tr><br>
-                <tr class='mypage-item-pr'>
-                    <td class='mypage-pr-title'>PR:</td>
-                    <td class='mypage-pr'>{$record['pr']}</td>
-                </tr><br>
-                <tr class='mypage-item-created_time'>
-                    <td class='mypage-created_time-title'>アカウント作成日：</td>
-                    <td class='mypage-created_time'>{$record['created_time']}</td>
-                </tr>
+            <div class='mypage-main'>
+                <h2>販売者マイページ</h2>
+                <div class='order-mypage-area'>
+                    <tr class='mypage-item-name'>
+                        <td class='mypage-name-title'>お名前：</td>
+                        <td class='mypage-name'>{$record["name"]}</td>
+                    </tr><br>
+                    <tr class='mypage-item-email'>
+                        <td class='mypage-email-title'>メールアドレス：</td>
+                        <td class='mypage-email'>{$record['email']}</td>
+                    </tr><br>
+                    <tr class='mypage-item-business_name'>
+                        <td class='mypage-business_name-title'>会社名(個人):</td>
+                        <td class='mypage-business_name'>{$record['business_name']}</td>
+                    </tr><br>
+                    <tr class='mypage-item-address'>
+                        <td class='mypage-address-title'>住所または活動地域:</td>
+                        <td class='mypage-address'>{$record['address']}</td>
+                    </tr><br>
+                    <tr class='mypage-item-career'>
+                        <td class='mypage-career-title'>経歴:</td>
+                        <td class='mypage-career'>{$record['career']}</td>
+                    </tr><br>
+                    <tr class='mypage-item-pr'>
+                        <td class='mypage-pr-title'>PR:</td>
+                        <td class='mypage-pr'>{$record['pr']}</td>
+                    </tr><br>
+                    <tr class='mypage-item-created_time'>
+                        <td class='mypage-created_time-title'>アカウント作成日：</td>
+                        <td class='mypage-created_time'>{$record['created_time']}</td>
+                    </tr>
+                </div>
+                <div class='order-mypage-button'>
+                    <a href='./SellerUserEdit.php'><button>プロフィール編集</button></a>
+                    <a href='./LogOut/sellerLogout.php'><button>ログアウト</button></a>
+                    <a href='./sellerUserDelete.php?id={$record['id']}'><button>アカウントを削除</button></a>
+                </div>
             </div>
-            <div class='order-mypage-button'>
-                <a href='./SellerUserEdit.php'><button>プロフィール編集</button></a>
-                <a href='./LogOut/sellerLogout.php'><button>ログアウト</button></a>
-                <a href='./sellerUserDelete.php?id={$record['id']}'><button>アカウントを削除</button></a>
-            </div>
-        </div>
-    ";
+        ";
     }
 } else {
     foreach ($result as $record) {
