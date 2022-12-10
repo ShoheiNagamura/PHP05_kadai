@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <title>PHP課題02</title>
 </head>
@@ -80,7 +81,10 @@
                 <label for="email">メールアドレス</label>
                 <input type="email" id="email" name="email" placeholder="メールアドレスを入力してください">
                 <label for="password">パスワード</label>
-                <input type="password" id="password" name="password" placeholder="パスワードを入力してください">
+                <div class="password-display">
+                    <input type="password" id="password" name="password" placeholder="パスワードを入力してください">
+                    <i class="toggle-pass fa fa-eye-slash"></i>
+                </div>
                 <button>ログイン</button>
             </form>
         </div>
@@ -88,6 +92,8 @@
 
     </main>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
