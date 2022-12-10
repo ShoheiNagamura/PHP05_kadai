@@ -24,9 +24,14 @@ $pdo = connect_to_db();
 
 // 一覧表示用処理---------------------------------------------------------------
 
+$orderUser_id = $_SESSION['id'];
+
+
 //selectのSQLクエリ用意
-$sql = 'SELECT * FROM job_project order by update_time DESC';
+$sql = 'SELECT * FROM job_project where orderUser_id =:orderUser_id order by update_time DESC';
 $stmt = $pdo->prepare($sql);
+$stmt->bindValue(':orderUser_id', $orderUser_id, PDO::PARAM_INT);
+
 
 //SQL実行するがまだデータの取得はできていない
 try {
