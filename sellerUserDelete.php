@@ -1,7 +1,7 @@
 <?php
 // 販売者ユーザー削除ーーーーーーーーーーーーーーーーー
 
-include('./functions/check_session_id');
+include('./functions/check_session_id.php');
 include('./functions/connect_to_db.php');
 
 session_start();

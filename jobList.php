@@ -3,7 +3,7 @@
 
 // 関数ファイルの読み込み
 include('./functions/check_session_id');
-include('./functions/connect_to_db.php');
+include('./functions/connect_to_db.php.php');
 
 session_start();
 
