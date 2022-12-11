@@ -11,7 +11,9 @@ session_start();
 // DB接続
 $pdo = connect_to_db();
 
-$sql = 'SELECT * FROM job_project order by update_time DESC';
+$sql = 'SELECT * FROM job_project LEFT OUTER JOIN
+    (SELECT jobProject_id, COUNT(id) AS interest_count FROM interest GROUP BY jobProject_id) AS result_table
+    ON  job_project.id = result_table.jobProject_id order by update_time DESC';
 $stmt = $pdo->prepare($sql);
 
 //SQL実行するがまだデータの取得はできていない
@@ -29,6 +31,21 @@ if ($status == false) {
     // PHPではデータを取得するところまで実施
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+
+
+
+// $stmt = $pdo->prepare($sql);
+
+// try {
+//     $status = $stmt->execute();
+// } catch (PDOException $e) {
+//     echo json_encode(["sql error" => "{$e->getMessage()}"]);
+//     exit();
+// }
+
+
+$user_id = $_SESSION['id'];
 
 $job_num = count($result);
 
@@ -198,6 +215,7 @@ if (isset($_SESSION["id"])) {
                 <p class=''>案件の内容：<br>{$record["content"]}</p>
             </div>
             <button class='application-btn'>応募する</button>
+            <a href='./interest/interest_create.php?sellerUser_id={$user_id}&jobProject_id={$record["id"]}'>興味あり{$record["interest_count"]}</a>
         </div>
     ";
     }
