@@ -68,35 +68,8 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 <a href="./search_list.php">
                     <li>依頼できる人一覧</li>
                 </a>
-                <li class="signup">新規登録
-                    <ul class="signup-down">
-                        <a href="./order_signup.php">
-                            <li class="order-signup">発注者登録</li>
-                        </a>
-                        <a href="./seller_signup.php">
-                            <li class="seller-signup">販売者登録</li>
-                        </a>
-                    </ul>
-                </li>
-                <li class="login">ログイン
-                    <ul class="login-down">
-                        <a href="./orderLogin/order_login.php">
-                            <li class="order-login">発注者ログイン</li>
-                        </a>
-                        <a href="./sellerLogin/seller_login.php">
-                            <li class="seller-login">販売者ログイン</li>
-                        </a>
-                    </ul>
-                </li>
-                <li class="job">案件管理
-                    <ul class="job-down">
-                        <a href="./jobInput.php">
-                            <li class="job-input">案件登録</li>
-                        </a>
-                        <a href="./jobInputList.php">
-                            <li class="job-list">案件管理一覧</li>
-                        </a>
-                    </ul>
+                <li class='login-out'>
+                    <a href='./LogOut/orderLogout.php'>ログアウト</a>
                 </li>
             </ul>
         </nav>
@@ -118,7 +91,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 <input type="text" id="business_name" name="business_name" placeholder="会社名または個人名をご入力ください" value="<?= $result['business_name'] ?>">
             </div>
             <div class=" ">
-                <label for="address">ご住所または活動地域</label>
+                <label for="address">活動地域</label>
                 <input type="text" id="address" name="address" placeholder="ご住所または活動地域をご入力ください" value="<?= $result['address'] ?>">
             </div>
             <div class=" ">

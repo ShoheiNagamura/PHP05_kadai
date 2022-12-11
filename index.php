@@ -7,6 +7,11 @@ include('./functions/check_session_id.php');
 
 session_start();
 
+if (isset($_SESSION['name'])) {
+    $name = $_SESSION['name'];
+}
+// var_dump($name);
+
 // ヘッダー用
 $headerOutput = "";
 
@@ -71,7 +76,6 @@ if (isset($_SESSION['is_user']) && $_SESSION['is_user'] === 0) {
                 </ul>
                 <a href='./selectmypage.php'>
                     <img src='./img/mypage.png' alt='マイページアイコン'>
-                </a>
             </nav>
         </header>
     ";
