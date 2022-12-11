@@ -32,21 +32,12 @@ if ($status == false) {
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+// 存在したら値を変数に格納
+if (isset($_SESSION['id'])) {
+    $user_id = $_SESSION['id'];
+}
 
-
-
-// $stmt = $pdo->prepare($sql);
-
-// try {
-//     $status = $stmt->execute();
-// } catch (PDOException $e) {
-//     echo json_encode(["sql error" => "{$e->getMessage()}"]);
-//     exit();
-// }
-
-
-$user_id = $_SESSION['id'];
-
+// 登録されている案件件数を変数に格納
 $job_num = count($result);
 
 // ヘッダー用
