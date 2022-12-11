@@ -166,6 +166,7 @@ foreach ($result as $record) {
             <p class='seller-item seller-name'>{$record["name"]}</p>
             <p class='seller-item seller-name_kana'>{$record["name_kana"]}</p>
             <p class='seller-item seller-update_time'>更新日: {$record["update_time"]}</p>
+            <a href = './sellerDetail.php'><button>詳しく</button>
         </div>
     ";
 }

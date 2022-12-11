@@ -71,7 +71,6 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 <li class='login-out'>
                     <a href='./LogOut/orderLogout.php'>ログアウト</a>
                 </li>
-
             </ul>
         </nav>
     </header>
